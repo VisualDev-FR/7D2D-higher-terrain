@@ -6,16 +6,19 @@ using HarmonyLib;
 
 
 [HarmonyPatch(typeof(WorldBuilder), "GenerateData")]
-public static class WorldBuilder_GenerateData
+public static class H_WorldBuilder_GenerateData
 {
-    private static int TerrainOffset => XUiC_WorldGenerationWindowGroup_OnOpen.TerrainOffset;
+    private static int TerrainOffset => H_XUiC_WorldGenerationWindowGroup_OnOpen.TerrainOffset;
 
     private static WorldBuilder worldBuilder;
 
     public static bool Prefix(WorldBuilder __instance, ref IEnumerator __result)
     {
         if (ModManager.ModLoaded("TheDescent"))
+        {
+            Log.Out("[HigherTerrain] TheDescent is loaded, aborting 'WorldBuilder_GenerateData'");
             return true;
+        }
 
         worldBuilder = __instance;
         __result = GenerateData();

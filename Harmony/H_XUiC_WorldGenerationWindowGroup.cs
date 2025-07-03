@@ -2,7 +2,7 @@ using HarmonyLib;
 
 
 [HarmonyPatch(typeof(XUiC_WorldGenerationWindowGroup), "OnOpen")]
-public class XUiC_WorldGenerationWindowGroup_OnOpen
+public class H_XUiC_WorldGenerationWindowGroup_OnOpen
 {
     public static int defaultOffset = 50;
 
@@ -12,7 +12,15 @@ public class XUiC_WorldGenerationWindowGroup_OnOpen
 
     public static void Postfix(XUiC_WorldGenerationWindowGroup __instance)
     {
-        if (__instance.GetChildById("terrainOffset") is XUiC_ComboBoxInt terrainOffsetComboBox)
+        if (ModManager.ModLoaded("TheDescent"))
+        {
+            Log.Out("[HigherTerrain] TheDescent is loaded, aborting 'XUiC_WorldGenerationWindowGroup_OnOpen'");
+            return;
+        }
+
+        terrainOffsetComboBox = __instance.GetChildById("terrainOffset") as XUiC_ComboBoxInt;
+
+        if (terrainOffsetComboBox != null)
         {
             terrainOffsetComboBox.Value = defaultOffset;
         }
