@@ -1,0 +1,11 @@
+/ignore
+/build
+/obj
+
+/.vscode
+/.vs
+
+*.zip
+*.dll
+*.pdb
+*.sln

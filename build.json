@@ -1,0 +1,17 @@
+{
+    "name": "higher-terrain",
+    "csproj": "higher-terrain.csproj",
+    "include": [
+        "ModInfo.xml",
+        "ModConfig.xml",
+        "Config",
+        "UIAtlases",
+        "Resources",
+        "Prefabs"
+    ],
+    "prefabs": [],
+    "dependencies": [],
+    "clear_saves": [],
+    "game_path": null,
+    "dedi_path": null
+}
