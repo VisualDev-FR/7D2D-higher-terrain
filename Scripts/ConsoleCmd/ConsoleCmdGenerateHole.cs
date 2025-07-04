@@ -26,6 +26,13 @@ public class GenerateHoleConsoleCmd : ConsoleCmdAbstract
         if (_params.Count > 0 && !int.TryParse(_params[0], out radius))
         {
             Log.Error($"Invalid radius: '{_params[0]}'");
+            return;
+        }
+
+        if (radius < 1)
+        {
+            Log.Error($"Radius must be greater than 0");
+            return;
         }
 
         var sqrRadius = radius * radius;
