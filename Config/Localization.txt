@@ -1,0 +1,3 @@
+Key,english,french
+xuiTerrainOffsetDesc,increase vanilla terrain height,Augmente la profondeur de base du terrain
+xuiTerrainOffset,Terrain offset,Décalage du terrain
